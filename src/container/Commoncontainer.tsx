@@ -1,14 +1,15 @@
 import HeaderContaniner from './HeaderContainer';
 
-type Props = {
+// type interface
+interface CommonContainerProps {
   children: React.ReactNode;
-};
+}
 
-const CommonContainer = ({ children }: Props) => {
+const CommonContainer = ({ children }: CommonContainerProps) => {
   return (
     <div>
       <HeaderContaniner />
-      {children}
+      <div style={{ marginTop: '20px' }}>{children}</div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { Button, Box } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
 import usePagination from '../hooks/usePagination';
 
-export interface PaginationProps {
+interface PaginationProps {
   nowPageNumber: number;
   totalPageNumber: number;
   setNowPageNumber: Dispatch<SetStateAction<number>>;

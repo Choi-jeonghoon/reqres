@@ -6,7 +6,7 @@ interface MainContainerPropsType {
 }
 const MainComponent = ({ usersData }: MainContainerPropsType) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15px', gap: '15px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
       {usersData.map((item: UserType.User) => (
         <Card key={item.id} sx={{ maxWidth: 345 }}>
           <CardMedia component='img' alt='green iguana' height='140' image={item.avatar} />

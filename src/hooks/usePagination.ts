@@ -1,31 +1,31 @@
 import { Dispatch, SetStateAction, useCallback, useMemo } from 'react';
 
 const usePagination = (
-  NowPageNumber: number, //현재페이지
-  TotalPageNumber: number, // 총 페이지
+  nowPageNumber: number, //현재페이지
+  totalPageNumber: number, // 총 페이지
   diviber: number, // 나눠줄값
   setNowPageNumber: Dispatch<SetStateAction<number>>,
 ) => {
   //첫 페이지
-  const fistPageNumber: boolean = useMemo(() => NowPageNumber === 1, [NowPageNumber]);
+  const fistPageNumber: boolean = useMemo(() => nowPageNumber === 1, [nowPageNumber]);
 
   // 마지막 페이지
   const lastPageNumber: boolean = useMemo(
-    () => NowPageNumber === TotalPageNumber,
-    [NowPageNumber, TotalPageNumber],
+    () => nowPageNumber === totalPageNumber,
+    [nowPageNumber, totalPageNumber],
   );
 
   //시작페이지 번호
   const startPageNumber: number = useMemo(
-    () => Math.ceil(NowPageNumber / diviber - 1) * diviber + 1,
-    [NowPageNumber, diviber],
+    () => Math.ceil(nowPageNumber / diviber - 1) * diviber + 1,
+    [nowPageNumber, diviber],
   );
 
   //보여주고자하는 번호들 목록 map
   const pageListArr: Array<number | null> = Array.from({ length: diviber })
     .fill(0) //초기값 0으로 잡아야됨 empty값이 들어감 빈값이란소리다
     .map((_, idx: number) =>
-      startPageNumber + idx <= TotalPageNumber ? startPageNumber + idx : null,
+      startPageNumber + idx <= totalPageNumber ? startPageNumber + idx : null,
     )
     .filter((page: number | null) => Number.isInteger(page));
 
