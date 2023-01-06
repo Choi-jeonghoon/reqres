@@ -8,7 +8,8 @@ const useMainPage = () => {
   useEffect(() => {
     (async () => {
       const res = await getUserById();
-      setUsers(res);
+      console.log('asdasd', res);
+      setUsers(res.data);
     })();
   }, []);
   return { users };

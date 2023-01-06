@@ -9,9 +9,9 @@ const MainComponent = ({ usersData }: MainContainerPropsType) => {
   return (
     <div>
       {usersData.map((item: UserType.User) => (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia component='img' alt='green iguana' height='140' />
-          {item.avatar}
+        <Card key={item.id} sx={{ maxWidth: 345 }}>
+          <CardMedia component='img' alt='green iguana' height='140' image={item.avatar} />
+
           <CardContent>
             <Typography gutterBottom variant='h5' component='div'>
               {item.first_name}
